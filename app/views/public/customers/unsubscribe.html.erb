@@ -1,0 +1,11 @@
+<div class="container text-center">
+
+<h5 class="text-center">本当に退会されますか？</h5><br/>
+
+<div>
+  <%= link_to 'TOPに戻る', root_path, class: "btn btn-sm btn-primary" %>
+  <%= link_to '退会する', withdrawal_customer_path(current_customer), method: :patch, class: "btn btn-sm btn-danger" %>
+</div>
+
+
+</div>

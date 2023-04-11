@@ -1,0 +1,39 @@
+<div class="container">
+
+<div class="row">
+  <h2 class="table-active">Member Edit</h2>
+</div>
+
+<div class="row">
+<%= form_with model: @customer,url: information_customer_path(@customer.id), method: :patch do |f| %>
+ <table class="table table-borderless">
+     
+      <tr>
+        <th><%= f.label :name, "名前" %></th>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :email, "メール" %></th>
+        <td><%= f.email_field :email %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :birthday, "生年月日" %></th>
+        <td><%= f.text_field :birthday %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :sex, "性別" %></th>
+        <td><%= f.text_field :sex %></td>
+      </tr>
+      
+  </table>
+
+        <div>
+          <%= f.submit '編集内容の保存', class: "btn btn-sm btn-success" %>
+          <%= link_to '退会する',unsubscribe_customer_path, class: "btn btn-sm btn-danger" %>
+        </div>
+
+  <% end %>
+
+</div>
+</div>
+
