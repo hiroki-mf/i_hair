@@ -17,7 +17,11 @@ class Public::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-
+def new_guest
+    customer = Customer.guest
+    sign_in customer   # ユーザーをログインさせる
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+end
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
