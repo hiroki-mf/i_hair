@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Cosmetics List</h2>
     <div>
-      <%= link_to new_review_path(cosmetic.id) do %>
+      <%= link_to cosmetic_path(cosmetic.id) do %>
         <% if item.image.attached? %>
           <%= image_tag item.image, size: "150x150" %>
         <% else %>

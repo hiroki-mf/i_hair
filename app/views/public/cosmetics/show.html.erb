@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Cosmetic</h2>
+    <div>
+      <% if @cosmetic.image.attached? %>
+        <%= image_tag @cosmetic.image, size: "250x250" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "250x250" %>
+      <% end %>
+    </div>
+    
+    <div><%= @cosmetic.name %></div>
+    
+     <%= form_with model: @review,url: new_review_path, method: :post do |f| %>
+
+          <%= f.hidden_field :cosmetic_id, :value => @cosmetic.id %>
+
+          <%= f.submit 'レビューする', class: "btn btn-sm btn-success" %>
+
+      <% end %>
+</div>
