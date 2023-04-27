@@ -1,12 +1,8 @@
 <div class="container">
-  <h2>Cosmetics List</h2>
-    <div>
-      <%= link_to cosmetic_path(cosmetic.id) do %>
-        <% if item.image.attached? %>
-          <%= image_tag item.image, size: "150x150" %>
-        <% else %>
-          <%= image_tag 'no_image', size: "150x150" %>
-        <% end %>
-        <% end %>
-    </div>
+  <h2>REVIEW LIST</h2>
+  
+    <% @cosmetics.each do |cosmetic| %>
+      <div><%= link_to cosmetic.image, cosmetic_path(cosmetic.id) %></div>
+    <% end %>
+    
 </div>

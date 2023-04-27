@@ -8,13 +8,6 @@
       <% end %>
     </div>
     
-    <div><%= @cosmetic.name %></div>
+    <div><%= @cosmetic.text %></div>
     
-     <%= form_with model: @review,url: new_review_path, method: :post do |f| %>
-
-          <%= f.hidden_field :cosmetic_id, :value => @cosmetic.id %>
-
-          <%= f.submit 'レビューする', class: "btn btn-sm btn-success" %>
-
-      <% end %>
 </div>

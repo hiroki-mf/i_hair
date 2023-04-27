@@ -1,15 +1,32 @@
 class Public::CosmeticsController < ApplicationController
-  def index
-    @cosmetics = Cosmetic.all
-  end
-  
-  def show
-    @cosmetic = Cosmetic.find(params[:id])
-    @review = Review.new
-  end
-
-  private
-  def item_params
-    params.require(:cosmetics).permit(:image, :name)
-  end
+    def new
+     @cosmetic = Cosmetic.new
+    end
+    
+    def index
+     @cosmetics = Cosmetic.all
+     @customer = current_customer
+    end
+    
+    def create
+     @cosmetic = current_customer.cosmetics.build(cosmetic_params)
+    if @cosmetic.save
+     flash[:notice] = 'You have created review successfully.'
+     redirect_to cosmetic_path(@cosmetic.id)
+    else
+     @cosmetics = Cosmetic.all
+     render :index
+    end
+    end
+    
+    def show
+     @cosmetic = Cosmetic.find(params[:id])
+    end
+    
+    private
+    # ストロングパラメータ
+    def cosmetic_params
+     params.require(:cosmetic).permit(:text, :image)
+    end
+    
 end

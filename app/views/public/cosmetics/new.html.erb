@@ -1,16 +1,16 @@
 <div class="container">
   <h2>Cosmetics Reviews</h2>
   
-    <%= form_with model: @review,url: '/reviews', method: :post do |f| %>
+    <%= form_with model: @cosmetic,url: '/cosmetics', method: :post do |f| %>
         
     <h4>画像</h4>
         <%= f.file_field :image, accept: "image/*" %>
         
     <h4>コメント</h4>
-        <%= f.text_area :introduction %>
+        <%= f.text_area :text %>
         
         
-        <%= f.submit '投稿する', class: "btn btn-success" %>
+        <%= f.submit 'レビューする', class: "btn btn-success" %>
         
     <% end %>
 
