@@ -2,7 +2,15 @@
   <h2>REVIEW LIST</h2>
   
     <% @cosmetics.each do |cosmetic| %>
-      <div><%= link_to cosmetic.image, cosmetic_path(cosmetic.id) %></div>
+      <div>
+        <%= link_to cosmetic_path(cosmetic.id) do %>
+          <% if cosmetic.image.attached? %>
+            <%= image_tag cosmetic.image, size: "200x200" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "200x200" %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
     
 </div>

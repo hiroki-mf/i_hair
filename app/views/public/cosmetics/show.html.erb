@@ -1,13 +1,14 @@
 <div class="container">
   <h2>Cosmetic</h2>
-    <div>
+        
+    <td>
       <% if @cosmetic.image.attached? %>
-        <%= image_tag @cosmetic.image, size: "250x250" %>
+        <%= image_tag @cosmetic.image, size: "350x350" %>
       <% else %>
-        <%= image_tag 'no_image', size: "250x250" %>
+        <%= image_tag 'no_image', size: "350x350" %>
       <% end %>
-    </div>
+    </td>
     
     <div><%= @cosmetic.text %></div>
-    
+  
 </div>
