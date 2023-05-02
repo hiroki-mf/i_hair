@@ -24,6 +24,7 @@ scope module: :public do
     root to: "homes#top"
     get '/about' => 'homes#about'
     resources :cosmetics, only: [:index, :show, :create, :new]
+    resources :comments, only: [:create]
     get 'customers/unsubscribe', to: 'customers#unsubscribe', as: 'unsubscribe_customer'
     patch 'customers/withdrawal', to: 'customers#withdrawal', as: 'withdrawal_customer'
     get 'customers/mypage', to: 'customers#show', as: 'mypage_customer'
