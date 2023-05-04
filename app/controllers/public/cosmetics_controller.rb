@@ -21,6 +21,8 @@ class Public::CosmeticsController < ApplicationController
     
     def show
      @cosmetic = Cosmetic.find(params[:id])
+     @comments = @cosmetic.comments #投稿詳細に関連付けてあるコメントを全取得
+     @comment = current_customer.comments.new
     end
     
     private

@@ -1,14 +1,29 @@
 <div class="container">
   <h2>Cosmetic</h2>
         
-    <td>
+    <div>
       <% if @cosmetic.image.attached? %>
         <%= image_tag @cosmetic.image, size: "350x350" %>
       <% else %>
         <%= image_tag 'no_image', size: "350x350" %>
       <% end %>
-    </td>
+    </div>
     
     <div><%= @cosmetic.text %></div>
+    
+  <%= form_with(model:[@cosmetic, @comment], url: comments_path,  method: :post) do |f| %>
+    <%= f.text_area :introduction %>
+    <%= f.hidden_field :cosmetic_id, value: @cosmetic.id %>
+    <%= f.submit 'コメントする', class: "btn btn-sm btn-success" %>
+  <% end %>
+
+  <div>コメント一覧</div>
   
+  <% @comments.each do |comment| %>
+    
+    <div><%= comment.introduction %></div>
+    
+    <div><%= link_to '投稿一覧', cosmetics_path %></div>
+    
+  <% end %>  
 </div>
