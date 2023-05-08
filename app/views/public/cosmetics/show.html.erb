@@ -11,7 +11,7 @@
     
     <div><%= @cosmetic.text %></div>
     
-  <%= form_with(model:[@cosmetic, @comment], url: comments_path,  method: :post) do |f| %>
+  <%= form_with(model:[@cosmetic, @comment], url: cosmetic_comments_path(@cosmetic),  method: :post) do |f| %>
     <%= f.text_area :introduction %>
     <%= f.hidden_field :cosmetic_id, value: @cosmetic.id %>
     <%= f.submit 'コメントする', class: "btn btn-sm btn-success" %>
@@ -23,7 +23,7 @@
     
     <div><%= comment.introduction %></div>
     
-    <div><%= link_to '投稿一覧', cosmetics_path %></div>
-    
-  <% end %>  
+  <% end %> 
+  
+  <div><%= link_to '投稿一覧', cosmetics_path %></div>
 </div>
