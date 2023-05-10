@@ -1,0 +1,41 @@
+<div class="container">
+<div class="row">
+
+  <h5 class="table-active">会員情報編集</h5>
+
+    <table class="table table-borderless">
+      <%= form_with model: @customer,url: admin_customer_path(@customer.id), method: :patch do |f| %>
+
+        <tr>
+          <th>会員ID</th>
+          <td><%= @customer.id %></td>
+        </tr>
+
+        <tr>
+          <th>ニックネーム</th>
+          <td><%= f.text_field :name %></td>
+        </tr>
+
+        <tr>
+          <th>性別</th>
+          <td><%= f.text_field :sex %></td>
+        </tr>
+
+        <tr>
+          <th>生年月日</th>
+          <td><%= f.text_field :birthday %></td>
+        </tr>
+
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= f.email_field :email %></td>
+        </tr>
+
+        <tr>
+          <th></th>
+           <td><%= f.submit '変更を保存', class: "btn btn-lg btn-success" %></td>
+         </tr>
+        <% end %>
+    </table>
+  </div>
+  </div>

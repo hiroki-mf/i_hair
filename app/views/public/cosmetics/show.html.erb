@@ -11,6 +11,12 @@
     
     <div><%= @cosmetic.text %></div>
     
+    <div>
+      <% if @cosmetic.customer == current_customer %>
+        <%= link_to "削除", cosmetic_path(@cosmetic), method: :delete, class: "btn btn-sm btn-danger" %>
+      <% end %>
+    </div>
+    
   <%= form_with(model:[@cosmetic, @comment], url: cosmetic_comments_path(@cosmetic),  method: :post) do |f| %>
     <%= f.text_area :introduction %>
     <%= f.hidden_field :cosmetic_id, value: @cosmetic.id %>

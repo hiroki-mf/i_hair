@@ -25,6 +25,12 @@ class Public::CosmeticsController < ApplicationController
      @comment = current_customer.comments.new
     end
     
+    def destroy
+     cosmetic = Cosmetic.find(params[:id])
+     cosmetic.destroy
+     redirect_to cosmetics_path
+    end
+    
     private
     # ストロングパラメータ
     def cosmetic_params
