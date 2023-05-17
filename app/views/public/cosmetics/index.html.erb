@@ -11,6 +11,23 @@
           <% end %>
         <% end %>
       </div>
+      
+      <div>
+        <div id="star-rate<%= cosmetic.id %>"> </div>
+          <script>
+          $('#star-rate<%= cosmetic.id %>').empty();
+          var elem = document.getElementById('star-rate<%= cosmetic.id %>');
+          var opt = {  
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          half: false,
+          readOnly: true,
+          score: <%= cosmetic.star %>,
+  };
+  raty(elem,opt);
+    
+          </script>
+      </div>    
     <% end %>
     
 </div>

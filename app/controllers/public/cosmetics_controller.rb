@@ -34,7 +34,7 @@ class Public::CosmeticsController < ApplicationController
     private
     # ストロングパラメータ
     def cosmetic_params
-     params.require(:cosmetic).permit(:text, :image)
+     params.require(:cosmetic).permit(:text, :image, :star)
     end
     
 end
