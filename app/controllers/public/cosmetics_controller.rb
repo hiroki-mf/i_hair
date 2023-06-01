@@ -31,6 +31,15 @@ class Public::CosmeticsController < ApplicationController
      redirect_to cosmetics_path
     end
     
+    def search
+    if params[:keyword].present?
+      @cosmetics = Cosmetic.where('text LIKE ?', "%#{params[:keyword]}%")
+      @keyword = params[:keyword]
+    else
+      @cosmetics = Cosmetic.all
+    end
+    end
+    
     private
     # ストロングパラメータ
     def cosmetic_params

@@ -29,5 +29,8 @@
           </script>
       </div>    
     <% end %>
-    
+   <%= form_with url: search_cosmetics_path, local: true, method: :get do |f| %>
+      <%= f.text_field :keyword %>
+      <%= f.submit "検索" %>
+    <% end %>   
 </div>

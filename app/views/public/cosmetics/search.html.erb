@@ -1,0 +1,10 @@
+<h2>検索結果 "<%= @keyword %>"</h2>
+  <ul>
+    <% @cosmetics.each do |cosmetic| %>
+      <li>
+        <%= link_to cosmetic_path(cosmetic.id) do %>
+          <%= image_tag cosmetic.image,width:"200" if cosmetic.image.attached? %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>

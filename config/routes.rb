@@ -24,7 +24,10 @@ scope module: :public do
     root to: "homes#top"
     get '/about' => 'homes#about'
     resources :cosmetics, only: [:index, :show, :create, :new, :destroy] do
-        resources :comments, only: [:create]    
+        resources :comments, only: [:create]
+        collection do
+            get 'search'
+        end
     end
     get 'customers/unsubscribe', to: 'customers#unsubscribe', as: 'unsubscribe_customer'
     patch 'customers/withdrawal', to: 'customers#withdrawal', as: 'withdrawal_customer'
