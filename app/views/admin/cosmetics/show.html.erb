@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Cosmetic</h2>
+        
+    <div>
+      <% if @cosmetic.image.attached? %>
+        <%= image_tag @cosmetic.image, width: "200" %>
+      <% else %>
+        <%= image_tag 'no_image', width: "200" %>
+      <% end %>
+    </div>
+    
+    <div>
+      <div id= "star-rate<%= @cosmetic.id %>"></div>
+        <script>
+          $('#star-rate<%= @cosmetic.id %>').empty();
+          var elem = document.getElementById('star-rate<%= @cosmetic.id %>');
+          var opt = {  
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          half: false,
+          readOnly: true,
+          score: <%= @cosmetic.star %>,
+          };
+          raty(elem,opt);
+        </script>
+    </div>
+    
+    <div><%= @cosmetic.text %></div>
+    
+    <div>
+      <% if @cosmetic.customer == current_customer %>
+        <%= link_to "削除", cosmetic_path(@cosmetic), method: :delete, class: "btn btn-sm btn-danger" %>
+      <% end %>
+    </div>
+
+  <div>コメント一覧</div>
+  
+  <% @comments.each do |comment| %>
+    
+    <div><%= comment.introduction %></div>
+    
+  <% end %> 
+  
+  <div><%= link_to 'トップ', admin_root_path %></div>
+</div>

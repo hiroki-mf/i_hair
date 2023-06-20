@@ -6,7 +6,7 @@ devise_for :admin,skip: [:registrations, :passwords] , controllers: {
 
 namespace :admin do
     root to: "homes#top"
-    resources :cosmetics, only: [:index, :show, :new, :create, :edit, :update]
+    resources :cosmetics, only: [:show, :new, :create, :edit, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
   end

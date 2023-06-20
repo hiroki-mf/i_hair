@@ -22,13 +22,23 @@
             
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
+            
             <li class="nav-item">
               <%= link_to "レビュー",  new_cosmetic_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
+            
+            <%= form_with url: search_cosmetics_path, local: true, method: :get do |f| %>
+              <%= f.text_field :keyword %>
+              <%= f.submit "検索" %>
+            <% end %> 
+            
             <% elsif admin_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %>
+            </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>

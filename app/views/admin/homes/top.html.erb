@@ -1,10 +1,11 @@
 <div class="container">
-  <h2>管理者トップ</h2>
-
+  <h2>管理者投稿一覧</h2>
+  
+<div class="row">
   <% @cosmetics.each do |cosmetic| %>
 
   <div>
-    <%= link_to cosmetic_path(cosmetic.id) do %>
+    <%= link_to admin_cosmetic_path(cosmetic.id) do %>
       <% if cosmetic.image.attached? %>
         <%= image_tag cosmetic.image, size: "200x200" %>
       <% else %>
@@ -13,4 +14,22 @@
     <% end %>
   </div>
   
+  <div>
+      <div id= "star-rate<%= cosmetic.id %>"></div>
+        <script>
+          $('#star-rate<%= cosmetic.id %>').empty();
+          var elem = document.getElementById('star-rate<%= cosmetic.id %>');
+          var opt = {  
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          half: false,
+          readOnly: true,
+          score: <%= cosmetic.star %>,
+          };
+          raty(elem,opt);
+        </script>
+    </div>
+  <% end %>
+ 
+</div> 
 </div>

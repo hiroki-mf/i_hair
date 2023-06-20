@@ -3,9 +3,9 @@
         
     <div>
       <% if @cosmetic.image.attached? %>
-        <%= image_tag @cosmetic.image, size: "350x350" %>
+        <%= image_tag @cosmetic.image, width: "200" %>
       <% else %>
-        <%= image_tag 'no_image', size: "350x350" %>
+        <%= image_tag 'no_image', width: "200" %>
       <% end %>
     </div>
     
@@ -20,8 +20,8 @@
           half: false,
           readOnly: true,
           score: <%= @cosmetic.star %>,
-  };
-          
+          };
+          raty(elem,opt);
         </script>
     </div>
     
@@ -38,14 +38,14 @@
     <%= f.hidden_field :cosmetic_id, value: @cosmetic.id %>
     <%= f.submit 'コメントする', class: "btn btn-sm btn-success" %>
   <% end %>
-
-  <div>コメント一覧</div>
   
-  <% @comments.each do |comment| %>
+    <div>コメント一覧</div>
+    
+    <% @comments.each do |comment| %>
     
     <div><%= comment.introduction %></div>
     
-  <% end %> 
+    <% end %>
   
-  <div><%= link_to '投稿一覧', cosmetics_path %></div>
+  <div><%= link_to '一覧へ戻る', cosmetics_path %></div>
 </div>

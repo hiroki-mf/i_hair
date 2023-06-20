@@ -1,7 +1,9 @@
 <div class="container">
   <h2>REVIEW LIST</h2>
   
+  <div class="row">
     <% @cosmetics.each do |cosmetic| %>
+    
       <div>
         <%= link_to cosmetic_path(cosmetic.id) do %>
           <% if cosmetic.image.attached? %>
@@ -13,7 +15,7 @@
       </div>
       
       <div>
-        <div id="star-rate<%= cosmetic.id %>"> </div>
+        <div id="star-rate<%= cosmetic.id %>"></div>
           <script>
           $('#star-rate<%= cosmetic.id %>').empty();
           var elem = document.getElementById('star-rate<%= cosmetic.id %>');
@@ -23,14 +25,11 @@
           half: false,
           readOnly: true,
           score: <%= cosmetic.star %>,
-  };
-  raty(elem,opt);
-    
+          };
+          raty(elem,opt);
           </script>
       </div>    
     <% end %>
-   <%= form_with url: search_cosmetics_path, local: true, method: :get do |f| %>
-      <%= f.text_field :keyword %>
-      <%= f.submit "検索" %>
-    <% end %>   
+  </div>
+  
 </div>
