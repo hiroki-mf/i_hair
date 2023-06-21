@@ -3,7 +3,8 @@
   
 <div class="row">
   <% @cosmetics.each do |cosmetic| %>
-
+  
+<div class="col-md-2">
   <div>
     <%= link_to admin_cosmetic_path(cosmetic.id) do %>
       <% if cosmetic.image.attached? %>
@@ -29,6 +30,7 @@
           raty(elem,opt);
         </script>
     </div>
+  </div>
   <% end %>
  
 </div> 
