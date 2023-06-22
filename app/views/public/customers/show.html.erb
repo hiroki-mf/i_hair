@@ -1,14 +1,31 @@
 <div class="container">
-  <h2>My Page</h2>
+  
+<div class="row">  
+  <h2 class="table-active">My Page</h2>
+</div>
 
-
-  <div><%= @customer.name %></div>
-    
-  <div><%= @customer.email %></div>
-    
-  <div><%= @customer.birthday %></div>
-    
-  <div><%= @customer.sex %></div>
+<table class="table table-borderless">
+  <tr>
+    <th>名前</th>
+    <td><%= @customer.name %></td>
+  </tr>
+  
+  <tr>
+    <th>メール</th>
+    <td><%= @customer.email %></td>
+  </tr>
+  
+  <tr>
+    <th>生年月日</th>
+    <td><%= @customer.birthday %></td>
+  </tr>
+  
+  <tr>
+    <th>性別</th>
+    <td><%= @customer.sex %></td>
+  </tr>
+  
+</table>
 
 
 <div><%= link_to '編集する',  information_edit_customer_path(current_customer), class: "btn btn-success" %></div>
