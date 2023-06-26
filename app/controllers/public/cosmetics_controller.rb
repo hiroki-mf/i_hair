@@ -4,8 +4,8 @@ class Public::CosmeticsController < ApplicationController
     end
     
     def index
-     @cosmetics = Cosmetic.all
      @customer = current_customer
+     @cosmetics = params[:tag_id].present? ? Tag.find(params[:tag_id]).cosmetics : Cosmetic.all
     end
     
     def create
@@ -43,7 +43,7 @@ class Public::CosmeticsController < ApplicationController
     private
     # ストロングパラメータ
     def cosmetic_params
-     params.require(:cosmetic).permit(:text, :image, :star)
+     params.require(:cosmetic).permit(:text, :image, :star, tag_ids: [])
     end
     
 end

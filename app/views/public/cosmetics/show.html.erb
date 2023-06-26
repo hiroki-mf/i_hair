@@ -30,6 +30,12 @@
     <div><%= @cosmetic.text %></div>
     
     <div>
+      <% @cosmetic.tags.each do |tag| %>
+        <%= tag.tagname %>
+      <% end %>
+    </div>
+    
+    <div>
       <% if @cosmetic.customer == current_customer %>
         <%= link_to "削除", cosmetic_path(@cosmetic), method: :delete, class: "btn btn-sm btn-danger" %>
       <% end %>

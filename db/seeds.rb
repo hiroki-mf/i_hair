@@ -9,3 +9,11 @@ Admin.create!(
   email: '111@111',
   password: '111111'
   )
+  
+Tag.create([
+    { tagname: 'ヘアオイル' },
+    { tagname: 'ヘアワックス' },
+    { tagname: 'ヘアクリーム'},
+    { tagname: 'ヘアムース'},
+    { tagname: 'ヘアスタイル'},
+    ])
