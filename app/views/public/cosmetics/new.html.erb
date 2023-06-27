@@ -3,19 +3,19 @@
     <h2 class="table-active">Cosmetics Reviews</h2>
   </div>
   
-  <div class="check_box">
+    <%= form_with model: @cosmetic,url: '/cosmetics', method: :post do |f| %>
+    
+   <div class="check_box">
     <span>タグ</span>
-    <%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :tagname) do |tag| %>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :tagname) do |tag| %>
      <div>
        <%= tag.label do %>
          <%= tag.check_box %>
          <%= tag.text %>
        <% end %>
      </div>
-     <% end %>
-   </div>
-  
-    <%= form_with model: @cosmetic,url: '/cosmetics', method: :post do |f| %>
+    <% end %>
+   </div> 
     
     <table class="table table-borderless">
       <tr>
