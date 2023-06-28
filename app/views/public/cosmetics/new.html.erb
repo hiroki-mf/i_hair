@@ -5,19 +5,21 @@
   
     <%= form_with model: @cosmetic,url: '/cosmetics', method: :post do |f| %>
     
+  <table class="table table-borderless">
    <div class="check_box">
-    <span>タグ</span>
+    <tr>
+    <th>タグ</th>
+    <td>
     <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :tagname) do |tag| %>
-     <div>
        <%= tag.label do %>
          <%= tag.check_box %>
          <%= tag.text %>
        <% end %>
-     </div>
     <% end %>
-   </div> 
+   </td>
+   </tr>
     
-    <table class="table table-borderless">
+    
       <tr>
         <th>評価</th>
         <td id="star"><%= f.hidden_field :star, id: :review_star %></td>

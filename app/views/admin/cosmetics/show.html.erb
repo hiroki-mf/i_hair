@@ -28,8 +28,8 @@
     <div><%= @cosmetic.text %></div>
     
     <div>
-      <% if @cosmetic.customer == current_customer %>
-        <%= link_to "削除", cosmetic_path(@cosmetic), method: :delete, class: "btn btn-sm btn-danger" %>
+      <% if current_admin %>     
+        <%= link_to "削除", admin_cosmetic_path(@cosmetic), method: :delete, class: "btn btn-sm btn-danger" %>
       <% end %>
     </div>
 
