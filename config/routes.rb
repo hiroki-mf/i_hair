@@ -8,9 +8,9 @@ namespace :admin do
     root to: "homes#top"
     resources :cosmetics, only: [:show, :new, :create, :edit, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :genres, only: [:index, :create, :edit, :update]
-  end
+    patch 'customers/withdrawal/:id', to: 'customers#withdrawal', as: 'withdrawal_customer'
 
+  end
 
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",

@@ -31,9 +31,8 @@
           </tr>
 
             <td>
-              <button type="button" class="btn btn-sm btn-success">
-              <%= link_to "編集する",   edit_admin_customer_path(@customer.id), class: 'text-light' %>
-              </button>
+              <%= link_to "編集する",   edit_admin_customer_path(@customer.id), class: 'text-light btn btn-sm btn-success' %>
+              <%= link_to '退会する',  admin_withdrawal_customer_path(id: @customer.id), method: :patch, class: "btn btn-sm btn-danger" %>
             </td>
             
       </table>
